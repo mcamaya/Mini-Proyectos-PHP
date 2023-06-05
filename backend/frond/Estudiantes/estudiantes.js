@@ -56,12 +56,14 @@ function detalles(){
             const especialidad = padre.getAttribute('especialidad');
             const direccion = padre.getAttribute('direccion');
             const celular = padre.getAttribute('celular');
-            
+
             const ingles = padre.getAttribute('ingles');
             const Ser = padre.getAttribute('Ser');
             const Review = padre.getAttribute('Review');
             const Skills = padre.getAttribute('Skills');
             const Asitencia = padre.getAttribute('Asitencia');
+
+            console.log(ingles, Ser, Review);
 
 
             const detalles = document.querySelector('#detalles');
@@ -82,14 +84,77 @@ function detalles(){
                     <h5><strong>Especialidad:  &nbsp;&nbsp;&nbsp</strong> ${especialidad}</h5>
                     <h5><strong>Dirección:  &nbsp;&nbsp;&nbsp</strong> ${direccion}</h5>
                     <h5 style="background-color: rgb(190, 82, 253);"><strong>Celular:  &nbsp;&nbsp;&nbsp</strong> ${celular}</h5>
-                    <div class="d-flex">
-                        <button class="w-25 mt-3 justify-content-end btn btn-outline-danger" style="height: 40px;"><i class="bi bi-trash-fill"></i>Eliminar</button>
                     </div>
-                </div>
-        </div>
-
+                    </div>
+                    <div id="charts1" class="charts">
+                    
+                    </div>
+                    
+                    <div class="d-flex">
+                        <button class="w-50 justify-content-end btn btn-outline-danger" style="height: 40px;"><i class="bi bi-trash-fill"></i>Eliminar</button>
+                    </div>
             `;
+
+            const getOptionCharts1 = () => {
+                let valIngles = ingles*1;
+                let valSer = Ser*1;
+                let valReview = Review*1;
+                let valSkills = Skills*1;
+                let valAsitencia = Asitencia*1;
+
+                return {
+                    tooltip: {
+                      trigger: 'item'
+                    },
+                    legend: {
+                      top: '5%',
+                      left: 'center',
+                      // doesn't perfectly work with our tricks, disable it
+                      selectedMode: false
+                    },
+                    series: [
+                      {
+                        name: 'Access From',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        center: ['50%', '70%'],
+                        // adjust the start angle
+                        startAngle: 180,
+                        label: {
+                          show: true,
+                          formatter(param) {
+                            // correct the percentage
+                            return param.name + ' (' + param.percent * 2 + '%)';
+                          }
+                        },
+                        data: [
+                          { value: valIngles, name: 'Ingles' },
+                          { value: valSer, name: 'Ser' },
+                          { value: valReview, name: 'Review' },
+                          { value: valSkills, name: 'Skills' },
+                          { value: valAsitencia, name: 'Asistencia' },
+                          {
+                            // make an record to fill the bottom 50%
+                            value: valIngles + valSer + valReview + valSkills + valAsitencia,
+                            itemStyle: {
+                              // stop the chart from rendering this piece
+                              color: 'none',
+                              decal: {
+                                symbol: 'none'
+                              }
+                            },
+                            label: {
+                              show: false
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  };
+            }
             
+            const charts1 = echarts. init(document.getElementById('charts1'));
+            charts1.setOption(getOptionCharts1());
         }
 
     });
