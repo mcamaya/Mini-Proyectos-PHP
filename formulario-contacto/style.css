@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+main{
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+form {
+    background: rgb(75,34,103);
+    background: linear-gradient(90deg, rgba(75,34,103,1) 0%, rgba(219,27,27,1) 50%, rgba(208,145,57,1) 100%);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 10px;
+    height: fit-content;
+    width: fit-content;
+    color:aliceblue;
+
+}
+.form-info{
+    display: flex;
+    align-items: center;
+}
+.divinfo{
+    flex-direction: column;
+}
+.divmessage{
+    flex-direction: column;
+    position: relative;
+}
+.button-container input {
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    border: none;
+    border-radius: 1.1em;
+    background-color: #212121;
+    color: white;
+    padding: 1em 2em;
+    position: absolute;
+    right: 0;
+
+   }
+   
+   
+.input-group{
+    margin: 30px;
+}
+.input-group label {
+    display: block;
+    padding-bottom: 10px;
+}
+.input-group input{
+    width: 400px;
+    height: 35px;
+}
+.input-group textarea{
+    width: 400px;
+    height: 250px;
+}
+.contact-info{
+    display: block;
+}
+.alert{
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+.danger {
+    background-color: rgba(236, 88, 88, 0.993);
+    display: none;
+}
+.success{
+    background-color: rgb(88, 214, 88);
+    display: none;
+}
