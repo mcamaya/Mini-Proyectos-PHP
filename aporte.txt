@@ -1,0 +1,28 @@
+Mi aporte Maria Camila Amaya Rubio
+Explode e implode son funciones que están en PHP que nos permiten crear o cortar un array según un separador.
+
+Podemos pasar un array y convertirlo en una cadena de texto, y así viceversa.
+Por ejemplo, echando un vistazo al siguiente código:
+
+<?php 
+    $array = array('Manzana', 'Piña', 'Pera', 'Uvas');
+ 
+    $texto = implode(", ", $array);
+ 
+    echo $texto;
+?>
+
+Nos dará como resultado: "Manzana, Piña, Pera, Uvas"
+
+Así mismo con explode haremos lo contrario, dado un delimitador y un texto, nos creará un array.
+
+<?php 
+    $texto = "Manzana, Piña, Pera, Uvas";
+    
+    $array_explode = explode(", ", $texto);
+ 
+    print_r($array_explode);
+ 
+?>
+
+Nos dará como resultado: Array ( [0] => Manzana [1] => Piña [2] => Pera [3] => Uvas )
