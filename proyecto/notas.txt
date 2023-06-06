@@ -1,0 +1,7 @@
+El archivo phpunit.xml es la configuración principal de PHPUnit para este proyecto. 
+
+1. Específicamente, indica que se utilizará vendor/autoload.php como el archivo de inicio para cargar dependencias, y que se ejecutarán todos los tests dentro del directorio tests.
+
+2. El archivo validateTest.php es una clase de prueba que extiende la clase TestCase de PHPUnit. La clase contiene un solo método de prueba, test_email, que prueba la función email de la clase Validate. La función email recibe una dirección de correo electrónico como entrada y devuelve true o false en función de si la dirección es válida o no. La función assertTrue comprueba si el resultado de la función es true.
+
+3. El archivo validate.php es la clase Validate que contiene la función email que se está probando en la clase de prueba. La función email utiliza filter_var para validar la dirección de correo electrónico y devuelve true si la dirección es válida, y false en caso contrario. La función está marcada como static para que pueda ser invocada directamente desde la clase sin tener que crear una instancia.
