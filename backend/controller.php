@@ -14,6 +14,11 @@ switch ($_GET['op']) {
         echo json_encode($datos, true);
         break;
     
+    case 'insertData':
+        $datos = $alquiler->insertClientes($body['nombre'], $body['nit'], $body['representante'], $body['email'], $body['telefono']);
+        echo json_encode("Datos insertados con éxito");
+        break;
+
     default:
         # code...
         break;

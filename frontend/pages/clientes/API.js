@@ -1,4 +1,5 @@
 const urlClientes = 'http://localhost/ArTeM02-061/mini-proyectos-PHP/backend/controller.php?op=getAll'; 
+const urlRegistrar = 'http://localhost/ArTeM02-061/mini-proyectos-PHP/backend/controller.php?op=insertData';
 
 export const getClientes = async () => {
     try {
@@ -10,3 +11,16 @@ export const getClientes = async () => {
     }
 }
 
+export const insertCliente = async (registro) => {
+    try {
+        await fetch(urlRegistrar, {
+            method: "POST",
+            body: JSON.stringify(registro),
+            headers:{
+                'Content-Type' : 'application/json'
+            }
+        });
+    } catch (error) {
+        
+    }
+}

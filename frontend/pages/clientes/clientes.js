@@ -1,4 +1,4 @@
-import { getClientes } from "./API.js";
+import { getClientes, insertCliente } from "./API.js";
 
 addEventListener('DOMContentLoaded', cargaClientes)
 
@@ -19,4 +19,28 @@ async function cargaClientes() {
         </tr>
         `;
     });
+}
+
+const registrar = document.querySelector('#registrar');
+
+registrar.addEventListener("submit", nuevoCliente);
+
+function nuevoCliente(e) {
+    e.preventDefault;
+    /* const id = document.querySelector('#id_con').value; */
+    const nombre = document.querySelector('#nombre_con').value;
+    const nit = document.querySelector('#nit_con').value;
+    const representante = document.querySelector('#representante_con').value;
+    const email = document.querySelector('#email_con').value;
+    const telefono = document.querySelector('#telefono_con').value;
+
+    const registro = {
+        nombre,
+        nit,
+        representante,
+        email,
+        telefono
+    }
+
+    nuevoCliente(registro);
 }
