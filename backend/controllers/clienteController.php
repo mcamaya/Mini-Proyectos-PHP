@@ -18,6 +18,11 @@ switch ($_GET['op']) {
         echo json_encode('Datos insertados correctamente');
         break;
 
+    case 'update':
+        $datos = $cliente->updateCliente($body['id'], $body['nombre'], $body['nit'], $body['representante'], $body['correo'], $body['telefono']);
+        echo json_encode('Datos actualizados correctamente');
+        break;
+
     default:
         # code...
         break;
