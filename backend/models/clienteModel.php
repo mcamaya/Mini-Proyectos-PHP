@@ -25,11 +25,11 @@ class Cliente extends Conectar {
             $stm = $this->conectar->prepare("INSERT INTO constructoras (nombre_constructora, nit_constructora, nombre_representante, email_contacto, telefono_contacto) VALUES (?,?,?,?,?)");
             /* $stm->execute([$nombre, $nit, $representante, $correo, $telefono]); */
 
-            $stm = bindValue(1, $nombre);
-            $stm = bindValue(2, $nit);
-            $stm = bindValue(3, $representante);
-            $stm = bindValue(4, $correo);
-            $stm = bindValue(5, $telefono);
+            $stm -> bindValue(1, $nombre);
+            $stm -> bindValue(2, $nit);
+            $stm -> bindValue(3, $representante);
+            $stm -> bindValue(4, $correo);
+            $stm -> bindValue(5, $telefono);
 
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_ASSOC);

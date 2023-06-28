@@ -1,5 +1,5 @@
-const urlClientes = 'http://localhost/xampp/miniProyectosPHP/backend/controllers/clienteController.php?op=getAll';
-const urlNuevo = 'http://localhost/xampp/miniProyectosPHP/backend/controllers/clienteController.php?op=insert';
+const urlClientes = 'http://localhost/SkylAb-150/Mini-Proyectos-PHP/backend/controllers/clienteController.php?op=getAll';
+const urlNuevo = 'http://localhost/SkylAb-150/Mini-Proyectos-PHP/backend/controllers/clienteController.php?op=insert';
 
 export const getClientes = async () => {
     try {
