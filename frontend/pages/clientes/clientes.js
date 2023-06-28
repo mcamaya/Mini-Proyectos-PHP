@@ -1,4 +1,4 @@
-import { getClientes, nuevoCliente } from "./API.JS";
+import { getClientes, nuevoCliente, eliminarCliente } from "./API.JS";
 
 addEventListener("DOMContentLoaded", cargarClientes);
 const tabla = document.querySelector('#datosClientes');
@@ -16,6 +16,7 @@ async function cargarClientes(){
                 <td>${clt.nombre_representante}</td>
                 <td>${clt.email_contacto}</td>
                 <td>${clt.telefono_contacto}</td>
+                <td><button class="btn btn-outline-primary delete" id="${clt.id_constructora}">Eliminar</button></td>
             </tr>
         `        
     });
@@ -42,3 +43,14 @@ function registarCliente(e) {
     nuevoCliente(registro);
 }
 
+tabla.addEventListener("click", borrar);
+function borrar (e) {
+    if (e.target.classList.contains('delete')){
+        const idCliente = e.target.getAttribute('id');
+        
+        const conf = confirm("¿Desea eliminarlo?");
+        if (conf) {
+            eliminarCliente(idCliente);
+        }
+    }
+}

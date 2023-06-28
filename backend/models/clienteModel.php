@@ -55,4 +55,15 @@ class Cliente extends Conectar {
         }
     }
 
+    public function deleteCliente($id){
+        try {
+            $stm = $this->conectar->prepare("DELETE FROM constructoras WHERE id_constructora = ?");
+            $stm -> bindValue(1, $id);
+            $stm->execute();
+
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
 }

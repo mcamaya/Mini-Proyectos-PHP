@@ -1,6 +1,7 @@
 const urlClientes = 'http://localhost/SkylAb-150/Mini-Proyectos-PHP/backend/controllers/clienteController.php?op=getAll';
 const urlNuevo = 'http://localhost/SkylAb-150/Mini-Proyectos-PHP/backend/controllers/clienteController.php?op=insert';
 const urlEditar = 'http://localhost/SkylAb-150/Mini-Proyectos-PHP/backend/controllers/clienteController.php?op=update';
+const urlDelete = 'http://localhost/SkylAb-150/Mini-Proyectos-PHP/backend/controllers/clienteController.php?op=delete';
 
 export const getClientes = async () => {
     try {
@@ -31,6 +32,20 @@ export const editarCliente = async (registro) => {
         await fetch(urlEditar, {
             method: "PUT",
             body: JSON.stringify(registro),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export const eliminarCliente = async (id) => {
+    try {
+        await fetch(`${urlDelete}&id=${id}`, {
+            method: "DELETE",
+            body: JSON.stringify(id),
             headers: {
                 "Content-Type": "application/json"
             }

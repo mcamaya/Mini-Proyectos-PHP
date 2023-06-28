@@ -22,6 +22,11 @@ switch ($_GET['op']) {
         $datos = $cliente->updateCliente($body['id'], $body['nombre'], $body['nit'], $body['representante'], $body['correo'], $body['telefono']);
         echo json_encode('Datos actualizados correctamente');
         break;
+    
+    case 'delete':
+        $datos = $cliente->deleteCliente($_GET['id']);
+        echo json_encode('Dato borrado');
+        break;
 
     default:
         # code...
