@@ -13,6 +13,11 @@ switch ($_GET['op']) {
         echo json_encode($datos, true);
         break;
     
+    case 'insert':
+        $datos = $cliente->insertCliente($body['nombre'], $body['nit'], $body['representante'], $body['correo'], $body['telefono']);
+        echo json_encode('Datos insertados correctamente');
+        break;
+
     default:
         # code...
         break;
